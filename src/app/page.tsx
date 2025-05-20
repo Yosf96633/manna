@@ -237,7 +237,7 @@ export default function HallOfFame() {
                 delay: 0.4,
               },
             ].map((item, index) => (
-              <motion.div key={index} variants={item} className="h-full">
+              <motion.div key={index}  className="h-full">
                 <Card className="h-full overflow-hidden border-none bg-white shadow-lg dark:bg-gray-800">
                   <CardHeader className="pb-2">
                     <div className="flex justify-between">
@@ -316,7 +316,9 @@ export default function HallOfFame() {
                       )}
                     </Button>
                     <audio
-                      ref={(el) => (audioRefs.current[index] = el!)}
+                      ref={(el) => {
+    if (el) audioRefs.current[index] = el;
+  }}
                       src={audio.src}
                     />
                   </div>
